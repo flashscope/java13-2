@@ -3,6 +3,9 @@ import junit.framework.TestCase;
 
 public class PawnTest extends TestCase {
 	public void testCreate() throws Exception {
-		new Pawn();
+		Pawn pawn = new Pawn();
+		
+		String color = pawn.getColor();
+		assertEquals("white", color);
 	}
 }
