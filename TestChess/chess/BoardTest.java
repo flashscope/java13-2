@@ -17,6 +17,8 @@ public class BoardTest extends TestCase {
 		assertEquals(2, board.getPawnSize());
 		assertTrue(board.getPawnList().contains(pawnBlack));
 		
+		//ERROR!
+		board.addPawn(new Integer ("7"));
 		
 	}
 }

@@ -21,6 +21,7 @@ class Board {
 	 * @param pawn
 	 */
 	public void addPawn(Pawn pawn){
+		//already can add Pawn only
 		pawnList.add(pawn);
 	}
 	
