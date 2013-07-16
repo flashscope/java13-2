@@ -6,13 +6,19 @@ public class PawnTest extends TestCase {
 		String white = "white";
 		String black = "black";
 
-		Pawn pawn = new Pawn(white);
-
-		String color = pawn.getColor();
+		
+		//Error!
+		/*
+		Pawn pawnNoColor = new Pawn();
+		String color = pawnNoColor.getColor();
 		assertEquals(white, color);
-
-		Pawn pawn2 = new Pawn(black);
-		color = pawn2.getColor();
-		assertEquals(black, color);
+		*/
+		
+		//add white
+		Pawn pawnNoColor = new Pawn(white);
+		String color = pawnNoColor.getColor();
+		assertEquals(white, color);
+		
+		
 	}
 }
