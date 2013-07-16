@@ -1,6 +1,9 @@
 
 class Pawn {
 	String myColor;
+	static final String white = "white";
+	static final String black = "black";
+	
 	Pawn(String color) {
 		this.myColor = color;
 	}
