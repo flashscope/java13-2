@@ -1,6 +1,8 @@
 package chess;
 import java.util.ArrayList;
 
+import pieces.Pawn;
+
 /**
  * 체스판으로 체스말을 올려놓는 용도입니다.
  * @author flashscope

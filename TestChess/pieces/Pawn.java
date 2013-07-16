@@ -1,6 +1,6 @@
-package chess;
+package pieces;
 
-class Pawn {
+public class Pawn {
 	String myColor;
 	public static final String PAWN_WHITE = "white";
 	public static final String PAWN_BLACK = "black";
@@ -9,7 +9,7 @@ class Pawn {
 	 * 폰을 생성합니다. 이때 폰의 색상을 같이 정해줍니다.
 	 * @param color
 	 */
-	Pawn(String color) {
+	public Pawn(String color) {
 		this.myColor = color;
 	}
 	
