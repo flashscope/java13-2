@@ -24,4 +24,9 @@ public class Pawn {
 		return this.myColor;
 	}
 	
+	public char getShow() {
+		// TODO Auto-generated method stub
+		return this.show;
+	}
+	
 }

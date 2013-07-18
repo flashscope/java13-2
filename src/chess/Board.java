@@ -10,35 +10,57 @@ import pieces.Pawn;
  */
 class Board {
 	
-	private static ArrayList<Pawn> pawnList = new ArrayList<Pawn>();
+	private static ArrayList<ArrayList<Pawn>> boardList = new ArrayList<ArrayList<Pawn>>();
 	
 	Board(){
-		addPawn(new Pawn(Pawn.PAWN_WHITE,'p'));
-		addPawn(new Pawn(Pawn.PAWN_BLACK,'P'));
+		//addPawn(new Pawn(Pawn.PAWN_WHITE,'p'));
+		//addPawn(new Pawn(Pawn.PAWN_BLACK,'P'));
+		initialize();
 	}
 	
-	/**
-	 * Pawn을 인자로 넣어 보드에 폰을 추가합니다.
-	 * @param pawn
-	 */
-	public void addPawn(Pawn pawn){
-		pawnList.add(pawn);
+	private void initialize(){
+		boardList.clear();
+		for(int i=0; i<8; ++i){
+			if(i==1){
+				System.out.println("add p-"+i+"-"+makePawnList(Pawn.PAWN_WHITE,'p').size());
+				boardList.add(makePawnList(Pawn.PAWN_WHITE,'p'));
+			}else if(i==6){
+				System.out.println("add P-"+i);
+				boardList.add(makePawnList(Pawn.PAWN_BLACK,'P'));
+			}else{
+				boardList.add(makePawnList("none",'.'));
+			}
+		}
 	}
 	
-	/**
-	 * 보드에 올라와 있는 폰의 갯수를 반환합니다.
-	 * @return
-	 */
-	public int getPawnSize(){
-		return pawnList.size();
-	}
-	
-	/**
-	 * 폰이 저장되어있는 리스트를 반환합니다.
-	 * @return
-	 */
-	public ArrayList<Pawn> getPawnList(){
+	private ArrayList<Pawn> makePawnList(String color,char show){
+		ArrayList<Pawn> pawnList = new ArrayList<Pawn>();
+		pawnList.clear();
+		
+		for(int i=0; i<8; ++i){
+			pawnList.add(new Pawn(color,show));
+		}
+		
 		return pawnList;
 	}
 	
+	
+	public int getPawnSize(){
+		int pawnSize = 0;
+		for(int i=0; i<8; ++i){
+			for(int j=0; j<8; ++j){
+				boardList.get(i).size();
+				System.out.println(boardList.get(i).get(j).getColor());
+
+				if(boardList.get(i).get(j).getColor()!="none"){
+					++pawnSize;
+				}
+				
+			}
+		}
+		return pawnSize;
+	}
+	
+	
+
 }
