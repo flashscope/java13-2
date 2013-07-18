@@ -3,6 +3,8 @@ package pieces;
 public class Pawn {
 	String myColor;
 	char show;
+	
+	
 	public static final String PAWN_WHITE = "white";
 	public static final String PAWN_BLACK = "black";
 	

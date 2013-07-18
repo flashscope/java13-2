@@ -45,11 +45,9 @@ class Board {
 		int pawnSize = 0;
 		for(int i=0; i<8; ++i){
 			for(int j=0; j<8; ++j){
-
 				if(boardList.get(i).get(j).getColor()!="none"){
 					++pawnSize;
 				}
-				
 			}
 		}
 		return pawnSize;
@@ -60,7 +58,6 @@ class Board {
 		for(int i=0; i<8; ++i){
 			for(int j=0; j<8; ++j){
 				sb.append(boardList.get(i).get(j).getShow());
-				
 			}
 			sb.append("\n");
 		}
