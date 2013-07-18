@@ -13,8 +13,6 @@ class Board {
 	private static ArrayList<ArrayList<Pawn>> boardList = new ArrayList<ArrayList<Pawn>>();
 	
 	Board(){
-		//addPawn(new Pawn(Pawn.PAWN_WHITE,'p'));
-		//addPawn(new Pawn(Pawn.PAWN_BLACK,'P'));
 		initialize();
 	}
 	
@@ -22,10 +20,8 @@ class Board {
 		boardList.clear();
 		for(int i=0; i<8; ++i){
 			if(i==1){
-				System.out.println("add p-"+i+"-"+makePawnList(Pawn.PAWN_WHITE,'p').size());
 				boardList.add(makePawnList(Pawn.PAWN_WHITE,'p'));
 			}else if(i==6){
-				System.out.println("add P-"+i);
 				boardList.add(makePawnList(Pawn.PAWN_BLACK,'P'));
 			}else{
 				boardList.add(makePawnList("none",'.'));
@@ -49,8 +45,6 @@ class Board {
 		int pawnSize = 0;
 		for(int i=0; i<8; ++i){
 			for(int j=0; j<8; ++j){
-				boardList.get(i).size();
-				System.out.println(boardList.get(i).get(j).getColor());
 
 				if(boardList.get(i).get(j).getColor()!="none"){
 					++pawnSize;
@@ -61,6 +55,19 @@ class Board {
 		return pawnSize;
 	}
 	
+	public void printBoard(){
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i<8; ++i){
+			for(int j=0; j<8; ++j){
+				sb.append(boardList.get(i).get(j).getShow());
+				
+			}
+			sb.append("\n");
+		}
+		System.out.println("-------------------");
+		System.out.println(sb);
+		System.out.println("-------------------");
+	}
 	
 
 }

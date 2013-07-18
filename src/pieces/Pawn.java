@@ -20,12 +20,10 @@ public class Pawn {
 	 * @return
 	 */
 	public String getColor() {
-		// TODO Auto-generated method stub
 		return this.myColor;
 	}
 	
 	public char getShow() {
-		// TODO Auto-generated method stub
 		return this.show;
 	}
 	
