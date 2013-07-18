@@ -1,32 +1,30 @@
 package pieces;
 
 public class Pawn {
-	String myColor;
-	char show;
+	public static enum pawnColor {PAWN_NONE,PAWN_WHITE,PAWN_BLACK}
+	
+	pawnColor myColor;
 	
 	
-	public static final String PAWN_WHITE = "white";
-	public static final String PAWN_BLACK = "black";
 	
-	/**
-	 * 폰을 생성합니다. 이때 폰의 색상을 같이 정해줍니다.
-	 * @param color
-	 */
-	public Pawn(String color, char show) {
+	public Pawn(pawnColor color) {
 		this.myColor = color;
-		this.show = show;
 	}
 	
-	/**
-	 * 생성된 폰의 색상을 반환합니다.
-	 * @return
-	 */
-	public String getColor() {
+	
+	public pawnColor getColor() {
 		return this.myColor;
 	}
 	
 	public char getShow() {
-		return this.show;
+		switch(myColor){
+		case PAWN_WHITE:
+			return 'p';
+		case PAWN_BLACK:
+			return 'P';
+		default:
+			return '.';
+		}
 	}
 	
 }

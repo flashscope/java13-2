@@ -20,21 +20,21 @@ class Board {
 		boardList.clear();
 		for(int i=0; i<8; ++i){
 			if(i==1){
-				boardList.add(makePawnList(Pawn.PAWN_WHITE,'p'));
+				boardList.add(makePawnList(Pawn.pawnColor.PAWN_WHITE));
 			}else if(i==6){
-				boardList.add(makePawnList(Pawn.PAWN_BLACK,'P'));
+				boardList.add(makePawnList(Pawn.pawnColor.PAWN_BLACK));
 			}else{
-				boardList.add(makePawnList("none",'.'));
+				boardList.add(makePawnList(Pawn.pawnColor.PAWN_NONE));
 			}
 		}
 	}
 	
-	private ArrayList<Pawn> makePawnList(String color,char show){
+	private ArrayList<Pawn> makePawnList(Pawn.pawnColor color){
 		ArrayList<Pawn> pawnList = new ArrayList<Pawn>();
 		pawnList.clear();
 		
 		for(int i=0; i<8; ++i){
-			pawnList.add(new Pawn(color,show));
+			pawnList.add(new Pawn(color));
 		}
 		
 		return pawnList;
@@ -45,7 +45,7 @@ class Board {
 		int pawnSize = 0;
 		for(int i=0; i<8; ++i){
 			for(int j=0; j<8; ++j){
-				if(boardList.get(i).get(j).getColor()!="none"){
+				if(boardList.get(i).get(j).getColor()!=Pawn.pawnColor.PAWN_NONE){
 					++pawnSize;
 				}
 			}
