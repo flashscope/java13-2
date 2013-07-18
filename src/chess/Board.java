@@ -13,7 +13,8 @@ class Board {
 	private static ArrayList<Pawn> pawnList = new ArrayList<Pawn>();
 	
 	Board(){
-		//nothing now
+		addPawn(new Pawn(Pawn.PAWN_WHITE,'p'));
+		addPawn(new Pawn(Pawn.PAWN_BLACK,'P'));
 	}
 	
 	/**
