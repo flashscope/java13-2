@@ -2,6 +2,7 @@ package pieces;
 
 public class Pawn {
 	String myColor;
+	char show;
 	public static final String PAWN_WHITE = "white";
 	public static final String PAWN_BLACK = "black";
 	
@@ -9,8 +10,9 @@ public class Pawn {
 	 * 폰을 생성합니다. 이때 폰의 색상을 같이 정해줍니다.
 	 * @param color
 	 */
-	public Pawn(String color) {
+	public Pawn(String color, char show) {
 		this.myColor = color;
+		this.show = show;
 	}
 	
 	/**

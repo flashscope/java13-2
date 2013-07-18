@@ -13,7 +13,7 @@ public class PawnTest extends TestCase {
 		*/
 		
 		//add white
-		Pawn pawnWhite = new Pawn(Pawn.PAWN_WHITE);
+		Pawn pawnWhite = new Pawn(Pawn.PAWN_WHITE,'p');
 		String color = pawnWhite.getColor();
 		assertEquals(Pawn.PAWN_WHITE, color);
 		
