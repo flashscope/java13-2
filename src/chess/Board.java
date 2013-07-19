@@ -9,8 +9,8 @@ import pieces.Pawn;
  *
  */
 class Board {
-	
 	private static ArrayList<ArrayList<Pawn>> boardList = new ArrayList<ArrayList<Pawn>>();
+	private static final String NEW_LINE = System.getProperty("line.separator");
 	
 	Board(){
 		initialize();
@@ -55,15 +55,24 @@ class Board {
 	
 	public void printBoard(){
 		StringBuilder sb = new StringBuilder();
-		for(int i=0; i<8; ++i){
-			for(int j=0; j<8; ++j){
+		for(int i=0; i<boardList.size(); ++i){
+			for(int j=0; j<boardList.get(i).size(); ++j){
 				sb.append(boardList.get(i).get(j).getShow());
 			}
-			sb.append("\n");
+			sb.append(NEW_LINE);
 		}
 		System.out.println("-------------------");
 		System.out.println(sb);
 		System.out.println("-------------------");
+	}
+	
+	public String getRowString(int index){
+		StringBuilder sb = new StringBuilder();
+		for(int j=0; j<boardList.get(index).size(); ++j){
+			sb.append(boardList.get(index).get(j).getShow());
+		}
+		
+		return sb.toString();
 	}
 	
 
