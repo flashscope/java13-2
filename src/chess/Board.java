@@ -57,7 +57,7 @@ class Board {
 		StringBuilder sb = new StringBuilder();
 		for(int i=0; i<boardList.size(); ++i){
 			for(int j=0; j<boardList.get(i).size(); ++j){
-				sb.append(boardList.get(i).get(j).getShow());
+				sb.append(" "+boardList.get(i).get(j).getShow());
 			}
 			sb.append(NEW_LINE);
 		}
