@@ -1,7 +1,7 @@
 package chess;
 import java.util.ArrayList;
 
-import pieces.Pawn;
+import pieces.Piece;
 
 /**
  * 체스판으로 체스말을 올려놓는 용도입니다.
@@ -20,11 +20,11 @@ class Board {
 		boardList.clear();
 		for(int i=0; i<8; ++i){
 			if(i==1){
-				boardList.add(new Row(Pawn.pawnColor.PAWN_WHITE));
+				boardList.add(new Row(Piece.pieceColor.PIECE_WHITE,Piece.pieceType.PAWN));
 			}else if(i==6){
-				boardList.add(new Row(Pawn.pawnColor.PAWN_BLACK));
+				boardList.add(new Row(Piece.pieceColor.PIECE_BLACK,Piece.pieceType.PAWN));
 			}else{
-				boardList.add(new Row(Pawn.pawnColor.PAWN_NONE));
+				boardList.add(new Row(Piece.pieceColor.PIECE_NONE,Piece.pieceType.NONE));
 			}
 		}
 	}
@@ -36,12 +36,12 @@ class Board {
 	}
 	
 	
-	public int getPawnSize(){
-		int pawnSize = 0;
+	public int getPieceSize(){
+		int pieceSize = 0;
 		for(int i=0; i<8; ++i){
-			pawnSize += boardList.get(i).getRowPawnSize();
+			pieceSize += boardList.get(i).getRowPieceSize();
 		}
-		return pawnSize;
+		return pieceSize;
 	}
 	
 	

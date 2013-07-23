@@ -2,16 +2,16 @@ package chess;
 
 import java.util.ArrayList;
 
-import pieces.Pawn;
+import pieces.Piece;
 
 class Row {
-	ArrayList<Pawn> rowList = new ArrayList<Pawn>();
+	ArrayList<Piece> rowList = new ArrayList<Piece>();
 
-	Row(Pawn.pawnColor color) {
+	Row(Piece.pieceColor color, Piece.pieceType type) {
 		rowList.clear();
-
+		
 		for (int i = 0; i < 8; ++i) {
-			rowList.add(new Pawn(color));
+			rowList.add(new Piece(color,type));
 		}
 		
 	}
@@ -27,14 +27,14 @@ class Row {
 	}
 	
 	
-	public int getRowPawnSize(){
-		int pawnSize = 0;
+	public int getRowPieceSize(){
+		int pieceSize = 0;
 		for(int i=0; i<8; ++i){
-			if(rowList.get(i).getColor()!=Pawn.pawnColor.PAWN_NONE){
-				++pawnSize;
+			if(rowList.get(i).getColor()!=Piece.pieceColor.PIECE_NONE){
+				++pieceSize;
 			}
 		}
-		return pawnSize;
+		return pieceSize;
 	}
 	
 
