@@ -8,7 +8,7 @@ public class BoardTest extends TestCase {
 		assertEquals(16, board.getPawnSize());
 		board.printBoard();
 		
-		assertEquals("pppppppp", board.getRowString(1));
-		assertEquals("PPPPPPPP", board.getRowString(6));
+		assertEquals("pppppppp", board.getRowStringById(1));
+		assertEquals("PPPPPPPP", board.getRowStringById(6));
 	}
 }
