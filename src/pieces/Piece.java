@@ -66,4 +66,53 @@ public class Piece {
 		}
 	}
 
+	public boolean isWhite(){
+		return (myColor == pieceColor.PIECE_WHITE) ? true : false;
+	}
+	public boolean isBlack(){
+		return (myColor == pieceColor.PIECE_BLACK) ? true : false;
+	}
+	
+	public static Piece createWhitePawn() {
+		return new Piece(pieceColor.PIECE_WHITE, pieceType.PAWN);
+	}
+	public static Piece createBlackPawn() {
+		return new Piece(pieceColor.PIECE_BLACK, pieceType.PAWN);
+	}
+	
+	public static Piece createWhiteRook() {
+		return new Piece(pieceColor.PIECE_WHITE, pieceType.ROOK);
+	}
+	public static Piece createBlackRook() {
+		return new Piece(pieceColor.PIECE_BLACK, pieceType.ROOK);
+	}
+	
+	public static Piece createWhiteKnight() {
+		return new Piece(pieceColor.PIECE_WHITE, pieceType.KNIGHT);
+	}
+	public static Piece createBlackKnight() {
+		return new Piece(pieceColor.PIECE_BLACK, pieceType.KNIGHT);
+	}
+	
+	public static Piece createWhiteBishop() {
+		return new Piece(pieceColor.PIECE_WHITE, pieceType.BISHOP);
+	}
+	public static Piece createBlackBishop() {
+		return new Piece(pieceColor.PIECE_BLACK, pieceType.BISHOP);
+	}
+	
+	public static Piece createWhiteQueen() {
+		return new Piece(pieceColor.PIECE_WHITE, pieceType.QUEEN);
+	}
+	public static Piece createBlackQueen() {
+		return new Piece(pieceColor.PIECE_BLACK, pieceType.QUEEN);
+	}
+	
+	public static Piece createWhiteKing() {
+		return new Piece(pieceColor.PIECE_WHITE, pieceType.KING);
+	}
+	public static Piece createBlackKing() {
+		return new Piece(pieceColor.PIECE_BLACK, pieceType.KING);
+	}
+	
 }
