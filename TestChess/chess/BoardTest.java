@@ -1,4 +1,5 @@
 package chess;
+import pieces.Piece;
 import junit.framework.TestCase;
 import util.StringUtil;
 
@@ -20,6 +21,9 @@ public class BoardTest extends TestCase {
 				StringUtil.appendNewLine("pppppppp") +
 				StringUtil.appendNewLine("rnbqkbnr"),
 			board.printBoard());
+		
+		assertEquals(2,board.getSpecialPieceSize(Piece.pieceColor.PIECE_BLACK, Piece.pieceType.KNIGHT));
+		
 		
 	}
 }

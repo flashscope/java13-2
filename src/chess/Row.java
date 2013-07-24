@@ -70,5 +70,19 @@ class Row {
 		}
 		return pieceSize;
 	}
+	
+	/**
+	 * 해당 가로열에 있는 특정한 말의 갯수를 반환합니다.
+	 * @return	가로열에 있는 특정한 말의 갯수
+	 */
+	public int getRowSpecialPieceSize(Piece.pieceColor color, Piece.pieceType type) {
+		int pieceSize = 0;
+		for (int i = 0; i < 8; ++i) {
+			if (rowList.get(i).getColor() == color && rowList.get(i).getType() == type) {
+				++pieceSize;
+			}
+		}
+		return pieceSize;
+	}
 
 }

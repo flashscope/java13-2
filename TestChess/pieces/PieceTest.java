@@ -21,6 +21,7 @@ public class PieceTest extends TestCase {
 		
 		verifyCreation(Piece.createWhiteKing(), Piece.createBlackKing(),
 				Piece.pieceType.KING, 'k');
+		
 	}
 
 	private void verifyCreation(Piece whitePiece, Piece blackPiece,

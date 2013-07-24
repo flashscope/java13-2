@@ -65,6 +65,19 @@ class Board {
 		return pieceSize;
 	}
 	
+	
+	/**
+	 * 특정 색과 종류의 말의 갯수를 구합니다.
+	 * @return	현재 체스판 위에 있는 특정한 말의 갯수
+	 */
+	public int getSpecialPieceSize(Piece.pieceColor color, Piece.pieceType type) {
+		int pieceSize = 0;
+		for (int i = 0; i < 8; ++i) {
+			pieceSize += boardList.get(i).getRowSpecialPieceSize(color,type);
+		}
+		return pieceSize;
+	}
+	
 	/**
 	 * 체스판의 현재 모습을 약자로 표시를 해줍니다.
 	 * println으로 출력도 하지만 문자열로 반환도 합니다.
