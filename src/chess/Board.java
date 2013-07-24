@@ -14,6 +14,10 @@ import util.StringUtil;
 class Board {
 	private static ArrayList<Row> boardList = new ArrayList<Row>();
 
+	/**
+	 * 체스판을 초기화 합니다.
+	 * 이때 기본적인 말도 같이 배치합니다.
+	 */
 	public void initialize() {
 		boardList.clear();
 		for (int i = 0; i < 8; ++i) {
@@ -39,11 +43,20 @@ class Board {
 			boardList.add(row);
 		}
 	}
-
+	
+	/**
+	 * 원하는 가로줄에 배치된 말의 종류를 문자열로 반환합니다.
+	 * @param index	보고 싶은 줄의 인덱스
+	 * @return	나열된 말의 종류를 문자열로 반환
+	 */
 	public String getRowStringById(int index) {
 		return boardList.get(index).getRowString();
 	}
 
+	/**
+	 * 체스판 전체에 있는 말의 갯수를 반환합니다.
+	 * @return	현재 체스판 위에 있는 말의 갯수
+	 */
 	public int getPieceSize() {
 		int pieceSize = 0;
 		for (int i = 0; i < 8; ++i) {
@@ -51,7 +64,12 @@ class Board {
 		}
 		return pieceSize;
 	}
-
+	
+	/**
+	 * 체스판의 현재 모습을 약자로 표시를 해줍니다.
+	 * println으로 출력도 하지만 문자열로 반환도 합니다.
+	 * @return	체스판의 현재 모습을 담은 문자열
+	 */
 	public String printBoard() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 8; ++i) {
