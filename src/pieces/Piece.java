@@ -115,4 +115,8 @@ public class Piece {
 		return new Piece(pieceColor.PIECE_BLACK, pieceType.KING);
 	}
 	
+	//hw5-3-2?
+	public static Piece createPiece(pieceColor color, pieceType type) {
+		return new Piece(color, type);
+	}
 }
