@@ -84,5 +84,12 @@ class Row {
 		}
 		return pieceSize;
 	}
+	
+	/**
+	 * 해당 가로열에 있는 특정한 말을 반환합니다.
+	 */
+	public Piece getRowSpecialPiece(int x) {
+		return rowList.get(x);
+	}
 
 }

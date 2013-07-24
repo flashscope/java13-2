@@ -24,6 +24,7 @@ public class BoardTest extends TestCase {
 		
 		assertEquals(2,board.getSpecialPieceSize(Piece.pieceColor.PIECE_BLACK, Piece.pieceType.KNIGHT));
 		
+		assertEquals('R',board.getPieceByXY("a8").getShow());
 		
 	}
 }

@@ -78,6 +78,17 @@ class Board {
 		return pieceSize;
 	}
 	
+	public Piece getPieceByXY(String xy){
+		char x = xy.charAt(0);
+		char y = xy.charAt(1);
+		
+		int intX = Character.getNumericValue(x);
+		int intY = (int)y-48-1;
+		
+		//-7 is for reverse pin
+		return boardList.get(7-intY).getRowSpecialPiece(intX-10);
+	}
+	
 	/**
 	 * 체스판의 현재 모습을 약자로 표시를 해줍니다.
 	 * println으로 출력도 하지만 문자열로 반환도 합니다.
