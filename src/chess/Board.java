@@ -12,9 +12,19 @@ class Board {
 	ArrayList<Row> rows = new ArrayList<Row>();
 	
 	Board() {
-		initialize();
+		initializeEmpty();
+		//initialize();
 	}
-
+	
+	private void initializeEmpty() {
+		Piece.resetCountPieces();
+		for (int i = 0; i < 8; i++) {
+			Row row = new Row();
+			row.initializeEmpty();
+			rows.add(row);
+		}
+	}
+	
 	private void initialize() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
@@ -63,4 +73,11 @@ class Board {
 		Row row = rows.get(pos.getY());
 		return row.getPieceByIndex(pos.getX());
 	}
+	
+	public void setPieceByPosition(String position,Piece piece) {
+		Position pos = new Position(position);
+		Row row = rows.get(pos.getY());
+		row.setPieceByIndex(pos.getX(), piece);
+	}
+	
 }

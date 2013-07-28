@@ -73,7 +73,11 @@ public class Row {
 	}
 
 	public Piece getPieceByIndex(int index) {
-		
 		return row.get(index);
 	}
+	
+	public void setPieceByIndex(int index, Piece piece) {
+		row.set(index, piece);
+	}
+	
 }

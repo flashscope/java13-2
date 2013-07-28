@@ -151,7 +151,7 @@ public class Piece {
 	public static Piece createBlackKing() {
 		return createBlack(Type.KING);
 	}
-
+	
 	public Type getType() {
 		return this.type;
 	}

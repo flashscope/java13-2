@@ -15,7 +15,7 @@ public class BoardTest extends TestCase {
 		Piece.resetCountPieces();
 		board = new Board();
 	}
-	
+	/*
 	public void testCreate() throws Exception {
 		assertEquals(RowTest.WHITE_PAWN_ROW, board.printRow(1));
 		assertEquals(RowTest.BLACK_PAWN_ROW, board.printRow(6));
@@ -31,25 +31,34 @@ public class BoardTest extends TestCase {
 			createEmptyRow() +
 			RowTest.WHITE_PAWN_ROW + Board.NEW_LINE +
 			RowTest.WHITE_EXCEPT_PAWN_ROW + Board.NEW_LINE;
+		
 		assertEquals(expected, board.print());
 		System.out.println(board.print());
 	}
-	
+	*/
 	private String createEmptyRow() {
 		return EMPTY_ROW + Board.NEW_LINE;
 	}
 	
 	public void testCountPieces() throws Exception {
-		assertEquals(16, Piece.countWhitePieces());
-		assertEquals(16, Piece.countBlackPieces());
+		assertEquals(0, Piece.countWhitePieces());
+		assertEquals(0, Piece.countBlackPieces());
 	}
 	
 	public void testCount() throws Exception {
-		assertEquals(8, board.getCount(WHITE,PAWN));
+		assertEquals(0, board.getCount(WHITE,PAWN));
 	}
 	
+	/*
 	public void testGetPieceByPosition() throws Exception {
 		assertEquals(Piece.createBlackRook(), board.getPieceByPosition("h8"));
+	}
+	*/
+	
+	public void testSetPieceByPosition() throws Exception {
+		board.setPieceByPosition("h8",Piece.createBlackRook());
+		assertEquals(Piece.createBlackRook(), board.getPieceByPosition("h8"));
+		System.out.println(board.print());
 	}
 	
 }
