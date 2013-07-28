@@ -88,8 +88,6 @@ class Board {
 		setColumnWhitePawnCount();
 		double resultScore = getNeedSubWhitePawnScore();
 		
-		debugWhite();
-		
 		for (Row row : rows) {
 			resultScore += row.getScoreWhite();			
 		}
@@ -99,9 +97,6 @@ class Board {
 	public double getScoreBlack() {
 		setColumnBlackPawnCount();
 		double resultScore = getNeedSubBlackPawnScore();
-		
-		debugBlack();
-		
 		
 		for (Row row : rows) {
 			resultScore += row.getScoreBlack();			
@@ -127,20 +122,6 @@ class Board {
 			}
 		}
 		return resultScore;
-	}
-	private void debugWhite(){
-		String temp = "whiteArray:";
-		for(int i = 0; i<8; ++i){
-			temp+="["+whitePawnColumnCount[i]+"]";
-		}
-		System.out.println(temp);
-	}
-	private void debugBlack(){
-		String temp = "blackArray:";
-		for(int i = 0; i<8; ++i){
-			temp+="["+blackPawnColumnCount[i]+"]";
-		}
-		System.out.println(temp);
 	}
 	
 	public void setColumnWhitePawnCount() {
