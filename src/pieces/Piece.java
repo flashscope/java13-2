@@ -1,6 +1,5 @@
 package pieces;
 
-import pieces.Piece.Type;
 
 public class Piece {
 	public enum Color {
@@ -10,22 +9,28 @@ public class Piece {
 	}
 	
 	public enum Type {
-		PAWN('p'),
-		ROOK('r'),
-		KNIGHT('n'),
-		BISHOP('b'),
-		QUEEN('q'),
-		KING('k'),
-		EMPTY('.');
+		PAWN('p',1),
+		ROOK('r',5),
+		KNIGHT('n',2.5),
+		BISHOP('b',3),
+		QUEEN('q',9),
+		KING('k',0),
+		EMPTY('.',0);
 		
 		private char symbol;
+		private double score;
 		
-		private Type(char symbol) {
+		private Type(char symbol, double score) {
 			this.symbol = symbol;
+			this.score = score;
 		}
 		
 		public char getSymbol() {
 			return symbol;
+		}
+		
+		public double getScore() {
+			return score;
 		}
 	}
 	

@@ -80,4 +80,37 @@ public class Row {
 		row.set(index, piece);
 	}
 	
+	public double getScoreWhite() {
+		double pieceScore = 0;
+		for (Piece piece : row) {
+			if(piece.getColor()==WHITE){
+				pieceScore += piece.getType().getScore();
+			}
+		}
+		return pieceScore;
+	}
+	
+	public double getScoreBlack() {
+		double pieceScore = 0;
+		for (Piece piece : row) {
+			if(piece.getColor()==BLACK){
+				pieceScore += piece.getType().getScore();
+			}
+		}
+		return pieceScore;
+	}
+	
+	public boolean isBlackPawn(int index){
+		if(row.get(index).getColor()==BLACK && row.get(index).getType()==PAWN){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isWhitePawn(int index){
+		if(row.get(index).getColor()==WHITE && row.get(index).getType()==PAWN){
+			return true;
+		}
+		return false;
+	}
 }

@@ -11,6 +11,10 @@ class Board {
 	
 	ArrayList<Row> rows = new ArrayList<Row>();
 	
+	private int[] whitePawnColumnCount = {0,0,0,0,0,0,0,0};
+	private int[] blackPawnColumnCount = {0,0,0,0,0,0,0,0};
+	
+	
 	Board() {
 		initializeEmpty();
 		//initialize();
@@ -24,7 +28,7 @@ class Board {
 			rows.add(row);
 		}
 	}
-	
+	/*
 	private void initialize() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
@@ -43,7 +47,7 @@ class Board {
 			rows.add(row);
 		}
 	}
-
+	*/
 	String printRow(int rowIndex) {
 		Row row = rows.get(rowIndex);
 		StringBuilder sb = new StringBuilder();
@@ -78,6 +82,85 @@ class Board {
 		Position pos = new Position(position);
 		Row row = rows.get(pos.getY());
 		row.setPieceByIndex(pos.getX(), piece);
+	}
+	
+	public double getScoreWhite() {
+		setColumnWhitePawnCount();
+		double resultScore = getNeedSubWhitePawnScore();
+		
+		debugWhite();
+		
+		for (Row row : rows) {
+			resultScore += row.getScoreWhite();			
+		}
+		return resultScore;
+	}
+	
+	public double getScoreBlack() {
+		setColumnBlackPawnCount();
+		double resultScore = getNeedSubBlackPawnScore();
+		
+		debugBlack();
+		
+		
+		for (Row row : rows) {
+			resultScore += row.getScoreBlack();			
+		}
+		return resultScore;
+	}
+	
+	private double getNeedSubWhitePawnScore(){
+		double resultScore = 0;
+		for(int i = 0; i<8; ++i){
+			if(whitePawnColumnCount[i]>1){
+				resultScore += whitePawnColumnCount[i]*-0.5;
+			}
+		}
+		return resultScore;
+	}
+	
+	private double getNeedSubBlackPawnScore(){
+		double resultScore = 0;
+		for(int i = 0; i<8; ++i){
+			if(blackPawnColumnCount[i]>1){
+				resultScore += blackPawnColumnCount[i]*-0.5;
+			}
+		}
+		return resultScore;
+	}
+	private void debugWhite(){
+		String temp = "whiteArray:";
+		for(int i = 0; i<8; ++i){
+			temp+="["+whitePawnColumnCount[i]+"]";
+		}
+		System.out.println(temp);
+	}
+	private void debugBlack(){
+		String temp = "blackArray:";
+		for(int i = 0; i<8; ++i){
+			temp+="["+blackPawnColumnCount[i]+"]";
+		}
+		System.out.println(temp);
+	}
+	
+	public void setColumnWhitePawnCount() {
+		for (Row row : rows) {
+			for(int i = 0; i<8; ++i){
+				if(row.isWhitePawn(i)){
+					++whitePawnColumnCount[i];
+				}
+			}
+		}
+	}
+	
+	public void setColumnBlackPawnCount() {
+		for (Row row : rows) {
+			for(int i = 0; i<8; ++i){
+				if(row.isBlackPawn(i)){
+					++blackPawnColumnCount[i];
+				}
+			}
+		}
 	}
 	
 }
