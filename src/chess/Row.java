@@ -1,95 +1,79 @@
 package chess;
 
+import static pieces.Piece.Color.*;
+import static pieces.Piece.Type.*;
+
 import java.util.ArrayList;
 
 import pieces.Piece;
+import pieces.Piece.Color;
+import pieces.Piece.Type;
 
-class Row {
-	ArrayList<Piece> rowList = new ArrayList<Piece>();
-	
-	/**
-	 * 주어진 색에 맞는 폰을 가로열에 채워 넣습니다.
-	 * @param color	생성하고 싶은 폰의 색상
-	 */
-	public void setPawnLine(Piece.pieceColor color) {
-		rowList.clear();
-		for (int i = 0; i < 8; ++i) {
-			rowList.add(new Piece(color, Piece.pieceType.PAWN));
+public class Row {
+	private ArrayList<Piece> row = new ArrayList<Piece>();
+
+	void initializeEmpty() {
+		for (int i = 0; i < 8; i++) {
+			row.add(Piece.noPiece());
 		}
 	}
 	
-	/**
-	 * 아무것도 없는 가로열을 만듭니다.
-	 */
-	public void setBlankLine() {
-		rowList.clear();
-		for (int i = 0; i < 8; ++i) {
-			rowList.add(new Piece(Piece.pieceColor.PIECE_NONE, Piece.pieceType.NONE));
+	void initializeWhitePawn() {
+		for (int i = 0; i < 8; i++) {
+			row.add(Piece.createWhitePawn());
 		}
 	}
 	
-	/**
-	 * 주어진 색에 맞는 룩,나이트,비숍,퀸,킹등 순서에 맞게 가로열에 채워 넣습니다.
-	 * @param color	생성하고 싶은 말의 색상
-	 */
-	public void setOtherLine(Piece.pieceColor color) {
-		rowList.clear();
-		rowList.add(new Piece(color, Piece.pieceType.ROOK));
-		rowList.add(new Piece(color, Piece.pieceType.KNIGHT));
-		rowList.add(new Piece(color, Piece.pieceType.BISHOP));
-		rowList.add(new Piece(color, Piece.pieceType.QUEEN));
-		rowList.add(new Piece(color, Piece.pieceType.KING));
-		rowList.add(new Piece(color, Piece.pieceType.BISHOP));
-		rowList.add(new Piece(color, Piece.pieceType.KNIGHT));
-		rowList.add(new Piece(color, Piece.pieceType.ROOK));
+	void initializeBlackPawn() {
+		for (int i = 0; i < 8; i++) {
+			row.add(Piece.createBlackPawn());
+		}
 	}
 	
-	/**
-	 * 해당 가로열에 있는 말의 종류를 약자로 문자열에 표시해 반환합니다.
-	 * @return	가로열에 있는 말의 종류 문자열
-	 */
-	public String getRowString() {
+	void initializeWhiteExceptPawn() {
+		row.add(Piece.create(WHITE, ROOK));
+		row.add(Piece.create(WHITE, KNIGHT));
+		row.add(Piece.create(WHITE, BISHOP));
+		row.add(Piece.create(WHITE, QUEEN));
+		row.add(Piece.create(WHITE, KING));
+		row.add(Piece.create(WHITE, BISHOP));
+		row.add(Piece.create(WHITE, KNIGHT));
+		row.add(Piece.create(WHITE, ROOK));
+	}
+	
+
+	void initializeBlackExceptPawn() {
+		row.add(Piece.create(BLACK, ROOK));
+		row.add(Piece.create(BLACK, KNIGHT));
+		row.add(Piece.create(BLACK, BISHOP));
+		row.add(Piece.create(BLACK, QUEEN));
+		row.add(Piece.create(BLACK, KING));
+		row.add(Piece.create(BLACK, BISHOP));
+		row.add(Piece.create(BLACK, KNIGHT));
+		row.add(Piece.create(BLACK, ROOK));		
+	}
+
+	String print() {
 		StringBuilder sb = new StringBuilder();
-		for (int j = 0; j < 8; ++j) {
-			sb.append(rowList.get(j).getShow());
+		for (int i = 0; i < 8; i++) {
+			sb.append(row.get(i).getSymbol());
 		}
-
 		return sb.toString();
 	}
-	
-	/**
-	 * 해당 가로열에 있는 말의 갯수를 반환합니다.
-	 * @return	가로열에 있는 말의 갯수
-	 */
-	public int getRowPieceSize() {
-		int pieceSize = 0;
-		for (int i = 0; i < 8; ++i) {
-			if (rowList.get(i).getColor() != Piece.pieceColor.PIECE_NONE) {
-				++pieceSize;
+
+	public int getCount(Color color, Type type) {
+		int pieceCount = 0;
+		
+		for (Piece piece : row) {
+			if (piece.equals(Piece.create(color, type))) {
+				pieceCount++;
 			}
 		}
-		return pieceSize;
-	}
-	
-	/**
-	 * 해당 가로열에 있는 특정한 말의 갯수를 반환합니다.
-	 * @return	가로열에 있는 특정한 말의 갯수
-	 */
-	public int getRowSpecialPieceSize(Piece.pieceColor color, Piece.pieceType type) {
-		int pieceSize = 0;
-		for (int i = 0; i < 8; ++i) {
-			if (rowList.get(i).getColor() == color && rowList.get(i).getType() == type) {
-				++pieceSize;
-			}
-		}
-		return pieceSize;
-	}
-	
-	/**
-	 * 해당 가로열에 있는 특정한 말을 반환합니다.
-	 */
-	public Piece getRowSpecialPiece(int x) {
-		return rowList.get(x);
+		return pieceCount;
 	}
 
+	public Piece getPieceByIndex(int index) {
+		
+		return row.get(index);
+	}
 }
